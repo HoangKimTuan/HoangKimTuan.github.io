@@ -1,5 +1,19 @@
 const socket = io('https://stream3005.herokuapp.com/');
 
+$( document ).ready( function () {
+    $.ajax ({
+        url: "https://global.xirsys.net/_turn/hoangkimtuan.github.io/",
+        type: "PUT",
+        async: false,
+        headers: {
+        "Authorization": "Basic " + btoa("hoangkimtuan1996:dfc9eca6-6155-11e7-81da-bbf7b09fc9b8")
+        },
+        success: function (res){
+        console.log("ICE List: "+res.v.iceServers);
+        }
+    });
+})
+
 $('#div-chat').hide();
 
 socket.on('DANH_SACH_ONLINE', arrUserInfo => {
